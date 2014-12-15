@@ -4,24 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GetSet
+namespace KMMILES
 {
     public class Way
     {
-
-        private double liczbakilometrów;
-        public double LiczbaKilometrów
-        {
-            get { return liczbakilometrów; }
-            set { liczbakilometrów = value; }
-        }
-
-        private double liczbamil;
-        public double LiczbaMil
-        {
-            get { return liczbamil; }
-            set { liczbamil = value; }
-        }
 
         public void Start()
         { Console.WriteLine("Co program powinien wykonac?\n1- Konwersja kilometrow na mile\n2- Konwersja mil na kilometry");
