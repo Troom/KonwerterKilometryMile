@@ -10,7 +10,7 @@ namespace KMMILES
     {
 
         public void Start()
-        { Console.WriteLine("Co program powinien wykonac?\n1- Konwersja kilometrow na mile\n2- Konwersja mil na kilometry");
+        { Console.WriteLine("Co program powinien wykonac?\n\n1- Konwersja kilometrow na mile.\n2- Konwersja mil na kilometry.");
             int choice = int.Parse(Console.ReadLine());
             EnterNumber(choice);
             int amount = int.Parse(Console.ReadLine());
