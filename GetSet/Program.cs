@@ -9,12 +9,71 @@ namespace KMMILES
     public class Way
     {
 
+        private float km;
+        public float Km
+        {
+            get { return km; }
+            set { km = value; }
+        }
+
+        private float mil;
+        public float Mil
+        {
+            get { return Km * 1.432f ; }
+            set { mil = value; }
+        }
+
+        private int value1;
+
+        public int Value1
+        {
+            get { return value1; }
+            set {
+                if (value==1 || value==2)
+                {
+                    value1 = value;   
+                }
+                else
+                {
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Podaj ktore zadanie ma wykonac program\n1 mile\n2 kilometry");
+                        Value1 = int.Parse(Console.ReadLine());
+                    } 
+                    while (Value1== 1 & Value1 == 2);
+                        value1 = Value1;
+                }
+                
+            }
+        }
+
+        private int value2;
+        public int Value2
+        {
+            get {return value2;}
+            set {
+                if (value>0)
+                { Console.WriteLine("value<0"); value2 = value; }  
+                else if(value<0)
+                {
+                    do
+                  {
+                      Console.WriteLine("Podaj liczbe powyzej zera");
+                      Value2 = int.Parse(Console.ReadLine());
+                  } 
+                    while (Value2 <0);
+                }
+                value2 = Value2; }
+        }
+       
+
         public void Start()
         { Console.WriteLine("Co program powinien wykonac?\n\n1- Konwersja kilometrow na mile.\n2- Konwersja mil na kilometry.");
-            int choice = int.Parse(Console.ReadLine());
-            EnterNumber(choice);
-            int amount = int.Parse(Console.ReadLine());
-            Choice(choice,amount);
+            Value1 = int.Parse(Console.ReadLine());
+            EnterNumber(value1);
+            Value2 = int.Parse(Console.ReadLine());    
+            Choice(value1,value2);
         }
 
         public void EnterNumber(int choice)
@@ -29,7 +88,8 @@ namespace KMMILES
             }
             else
             {
-                throw new ArgumentException();
+                Console.WriteLine("BLAD MISIU");
+                //throw new ArgumentException();
             }
         }
 
@@ -60,6 +120,10 @@ namespace KMMILES
             {
                 Console.WriteLine("{0} mil to {1} kilometrow", value, value * kilometers);
             }
+            else
+            {
+                Console.WriteLine("error");
+            }
         }
 
         void ConvertMile(int value)
@@ -77,6 +141,10 @@ namespace KMMILES
             {
             Console.WriteLine("{0} kilometrow to {1} mil", value, value * miles);
             }
+            else
+            {
+                Console.WriteLine("error");
+            }
         }
     }
 	
@@ -86,7 +154,17 @@ namespace KMMILES
         {
             Way droga = new Way();
             droga.Start();
+            droga.Km=10;
+            //Console.WriteLine(droga.Mil);    
         }
     }
 
 }
+
+//no nieźle Ci poszło mimo iż do programowania obiektowego trochę brakuje:)
+//Ważne jest przedewszystkim byś oddzielił warstwę prezentacyjną ( tutaj Console.WriteLine) od logiki (przeliczenia)
+//Spróbuj teraz to przerobić tak, aby ten kod zadziałał: (użyj właśiwości/properties)
+
+//var droga = new Way();
+//droga.Km = 15;
+//Console.WriteLine(droga.Mil);
